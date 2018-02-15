@@ -51,7 +51,7 @@ The generated documentation will be placed in the `README.md` file, overwriting 
 
 ### 4. Commit
 
-Red Panda jenkins-dind follows the [eslint Commit Message Conventions](https://github.com/willsoto/validate-commit/blob/master/conventions/eslint.md).
+Red Panda _Testlenium_ follows the [eslint Commit Message Conventions](https://github.com/willsoto/validate-commit/blob/master/conventions/eslint.md).
 Example:
 
 ```sh
@@ -68,6 +68,8 @@ Then push and send your pull request. Happy hacking and thank you for contributi
 As part of the test process, all commit messages will be linted, and your PR will **not** be accepted if it does not pass linting.
 
 ## Publishing a new release
+
+You need a github user with _write access_ to this repository
 
 1. Ensure that latest build on master is green
 1. Ensure your local code is up to date (`git pull origin master`)
