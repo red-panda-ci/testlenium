@@ -1,3 +1,6 @@
+#!/bin/bash
+
+cat << EOF
 # Testlenium
 
 Automated testing with Selenium through Zalenium using an ephemeral Docker platform
@@ -7,3 +10,4 @@ Automated testing with Selenium through Zalenium using an ephemeral Docker platf
 ## Usage
 
 TBD
+EOF
