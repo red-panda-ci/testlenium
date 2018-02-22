@@ -1,18 +1,23 @@
-#testlenium README
-#Content #
+# Testlenium
+
+Automated testing with Selenium through Zalenium using an ephemeral Docker platform
+
+[![Build Status](http://jenkins.redpandaci.com/buildStatus/icon?job=red-panda-ci/testlenium/develop)](https://jenkins.redpandaci.com/job/red-panda-ci/job/testlenium/job/develop/) [![Join the chat at https://gitter.im/red-panda-ci/testlenium](https://badges.gitter.im/red-panda-ci/testlenium.svg)](https://gitter.im/red-panda-ci/testlenium?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+# Content #
 * [Getting Started](#getting started)
    * [Set up the enviroment](#Set up the enviroment)
    * [Run Test](#Run Test)
     
-##Getting Started 
-###Set up the enviroment
+## Getting Started 
+### Set up the enviroment
 >[Java version 1.8 or higher.] 
 >[Selenium server stand alone]  
 >[Docker]  
 >[Chrome driver]  
 >[Firefox driver]   
     
-###Run Test
+### Run Test
 From comand line in your local machine  
 >You can set those properties:  
 >>[test]: to set the specific branch to run the test. 
@@ -37,7 +42,7 @@ There 2 ways to run the test:
             ./bin/test.sh test firefox true 
         If you don't add a tag the test will run on develop branch.  
                          
-###Report
+### Report
 There are 2 automated reports, generated with every tests execution.
  
  *   Zalenium dashboard a summary report with the execution videos, located in ci-scripts/reports/videos/dashboard.html from you project, 
