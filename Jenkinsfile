@@ -28,8 +28,6 @@ pipeline {
             }
             post {
                 always {
-                    step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
-
                     archiveArtifacts artifacts: 'ci-scripts/reports/videos/**/*', fingerprint: false
                     archiveArtifacts artifacts: 'ci-scripts/reports/cucumber-extentsreport/**/*', fingerprint: false
                     publishHTML (target: [
