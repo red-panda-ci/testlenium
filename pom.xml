@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.testlenium.web</groupId>
+    <artifactId>testlenium</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Testlenium</name>
+    <dependencies>
+        <!-- WebDriver Extension -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java8</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>1.2.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.temyers</groupId>
+            <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>21.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.13.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vimalselvam</groupId>
+            <artifactId>cucumber-extentsreport</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.aventstack</groupId>-->
+            <!--<artifactId>extentreports</artifactId>-->
+            <!--<version>3.1.1</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-local-java</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.webdriverextensions</groupId>
+            <artifactId>webdriverextensions</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20.1</version>
+                <configuration>
+                    <forkCount>6</forkCount>
+                    <reuseForks>false</reuseForks>
+                    <includes>
+                        <include>**/*IT.class</include>
+                    </includes>
+                    <skipTests>false</skipTests>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>
+                                com.testlenium.web.stepdefinitions.AnnotationTransformer
+                            </value>
+                        </property>
+                    </properties>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.temyers</groupId>
+                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+                <version>4.2.0</version>
+                <executions>
+                    <execution>
+                        <id>generateRunners</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>generateRunners</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Mandatory -->
+                            <!-- comma separated list of package names to scan for glue code -->
+                            <glue>
+                                <package>
+                                    com.testlenium.web.stepdefinitions
+                                </package>
+                            </glue>
+                            <outputDirectory>${project.build.directory}/generated-test-sources/cucumber
+                            </outputDirectory>
+                            <!-- The directory, which must be in the root of the runtime classpath, containing your feature files.  -->
+                            <featuresDirectory>src/test/resources/features</featuresDirectory>
+                            <!-- Directory where the cucumber report files shall be written  -->
+                            <cucumberOutputDir>ci-scripts/reports/cucumber-extentsreport</cucumberOutputDir>
+                            <plugins>
+                                <plugin>
+                                    <name>json</name>
+                                </plugin>
+                            </plugins>
+                            <!-- CucumberOptions.strict property -->
+                            <strict>false</strict>
+                            <!-- CucumberOptions.monochrome property -->
+                            <monochrome>false</monochrome>
+                            <!-- The tags to run, maps to CucumberOptions.tags property. Default is no tags. -->
+                            <!-- If set to true, only feature files containing the required tags shall be generated. -->
+                            <useTestNG>true</useTestNG>
+                            <!--&lt;!&ndash; The naming scheme to use for the generated test classes.  One of 'simple' or 'feature-title' &ndash;&gt;-->
+                            <!--<namingScheme>feature-title</namingScheme>-->
+                            <!-- The class naming pattern to use.  Only required/used if naming scheme is 'pattern'.-->
+                            <!--<parallelScheme>SCENARIO</parallelScheme>-->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

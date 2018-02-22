@@ -1,0 +1,3 @@
+[submodule "ci-scripts/node-cucumber-report-generator"]
+	path = ci-scripts/node-cucumber-report-generator
+	url = https://github.com/red-panda-ci/node-cucumber-report-generator.git
