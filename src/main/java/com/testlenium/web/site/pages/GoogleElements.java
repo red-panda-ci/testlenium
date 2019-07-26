@@ -20,7 +20,7 @@ public class GoogleElements extends WebRepository {
     @FindBy(id = Locators.GoogleLocators.LOGO_ID)
     public WebElement logo;
 
-    @FindBy(id = Locators.GoogleLocators.SEARCH_ID)
+    @FindBy(name = Locators.GoogleLocators.SEARCH_NAME)
     public WebElement search;
 
     public GoogleElements(){
