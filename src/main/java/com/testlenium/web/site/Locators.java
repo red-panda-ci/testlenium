@@ -6,7 +6,7 @@ public class Locators {
     }
 
     public static final class GoogleLocators {
-        public static final String SEARCH_ID = "lst-ib";
+        public static final String SEARCH_NAME = "q";
         public static final String LOGO_ID = "hplogo";
 
         private GoogleLocators() {
